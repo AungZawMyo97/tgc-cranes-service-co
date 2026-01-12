@@ -46,5 +46,4 @@ app.post('/api/send-email', async (req, res) => {
     }
 });
 
-// Export the app for Vercel
 export default app;

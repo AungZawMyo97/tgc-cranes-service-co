@@ -14,60 +14,42 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={`navbar sticky-top transition-all ${scrolled ? 'bg-white shadow-md' : 'bg-white shadow-sm'}`}>
-            <div className="container flex justify-between items-center" style={{ padding: '0.5rem 1rem' }}>
-                <a href="#" className="logo flex items-center gap-sm">
-                    <img src="/Logo.png" alt="Three Golden Cranes Group" style={{ height: '50px', objectFit: 'contain' }} />
-                    <div className="logo-text hidden md-block">
-                        <h1 className="text-primary font-bold" style={{ fontSize: '1.25rem', margin: 0, lineHeight: 1.2 }}>Three Golden Cranes</h1>
-                        <p className="text-secondary text-xs font-medium" style={{ margin: 0 }}>Group Service Co.ltd.</p>
+        <nav className={`transition-all duration-300 sticky top-0 z-50 ${scrolled ? 'glass shadow-md py-2' : 'bg-surface py-4'}`}>
+            <div className="container mx-auto px-4 flex justify-between items-center">
+                <a href="#" className="flex items-center gap-2">
+                    <div className="bg-primary text-secondary w-10 h-10 flex items-center justify-center font-bold rounded-sm font-heads text-lg">
+                        TG
+                    </div>
+                    <div>
+                        <h1 className="text-secondary font-bold tracking-tighter text-2xl leading-none font-heads">THREE GOLDEN CRANES</h1>
+                        <p className="text-primary-dark text-xs font-bold uppercase tracking-widest font-sans">Group Service Co. Ltd.</p>
                     </div>
                 </a>
 
-                {/* Desktop Menu */}
-                <div className="hidden md-flex gap-lg items-center">
-                    <a href="#home" className="nav-link hover-primary">Home</a>
-                    <a href="#services" className="nav-link hover-primary">Services</a>
-                    <a href="#about" className="nav-link hover-primary">About</a>
-                    <a href="#contact" className="btn btn-primary">Contact Us</a>
+                <div className="hidden md:flex gap-8 items-center">
+                    <a href="#home" className="font-bold uppercase text-sm tracking-wide hover:text-primary transition-colors">Home</a>
+                    <a href="#services" className="font-bold uppercase text-sm tracking-wide hover:text-primary transition-colors">Services</a>
+                    <a href="#about" className="font-bold uppercase text-sm tracking-wide hover:text-primary transition-colors">About</a>
+                    <a href="#contact" className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-sm font-bold uppercase rounded-sm text-secondary bg-primary hover:bg-primary-dark hover:shadow-md transition-all">
+                        Get Quote
+                    </a>
                 </div>
 
-                {/* Mobile Menu Button */}
-                <button className="md-hidden btn-icon" onClick={() => setIsOpen(!isOpen)}>
-                    {isOpen ? <X size={24} /> : <Menu size={24} />}
+                <button className="md:hidden text-secondary cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
+                    {isOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
             </div>
 
-            {/* Mobile Dropdown */}
             {isOpen && (
-                <div className="mobile-menu bg-white border-top fade-in">
-                    <div className="container flex flex-col gap-md" style={{ padding: '1rem' }}>
-                        <a href="#home" onClick={() => setIsOpen(false)}>Home</a>
-                        <a href="#services" onClick={() => setIsOpen(false)}>Services</a>
-                        <a href="#about" onClick={() => setIsOpen(false)}>About</a>
-                        <a href="#contact" className="text-primary font-bold" onClick={() => setIsOpen(false)}>Contact Us</a>
+                <div className="bg-surface border-t border-gray-200 absolute w-full left-0 shadow-xl md:hidden">
+                    <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+                        <a href="#home" className="font-bold text-lg uppercase hover:text-primary" onClick={() => setIsOpen(false)}>Home</a>
+                        <a href="#services" className="font-bold text-lg uppercase hover:text-primary" onClick={() => setIsOpen(false)}>Services</a>
+                        <a href="#about" className="font-bold text-lg uppercase hover:text-primary" onClick={() => setIsOpen(false)}>About</a>
+                        <a href="#contact" className="w-full text-center px-6 py-3 bg-primary text-secondary font-bold uppercase rounded-sm" onClick={() => setIsOpen(false)}>Contact Us</a>
                     </div>
                 </div>
             )}
-
-            <style>{`
-        .navbar { transition: all 0.3s ease; }
-        .sticky-top { position: sticky; top: 0; z-index: 1000; }
-        .shadow-sm { box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
-        .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
-        .hover-primary:hover { color: var(--color-primary); }
-        .md-hidden { display: block; }
-        .hidden { display: none; }
-        .md-flex { display: none; }
-        .btn-icon { background: none; border: none; cursor: pointer; color: var(--color-secondary); }
-        .border-top { border-top: 1px solid var(--color-border); }
-        .bg-white { background-color: #ffffff; }
-
-        @media (min-width: 768px) {
-          .md-hidden { display: none; }
-          .md-flex { display: flex; }
-        }
-      `}</style>
         </nav>
     );
 };

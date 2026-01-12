@@ -18,7 +18,6 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// Serve static files from the build directory
 app.use(express.static(join(__dirname, 'dist')));
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -51,7 +50,6 @@ app.post('/api/send-email', async (req, res) => {
     }
 });
 
-// Handle React routing, return all requests to React app
 app.get(/.*/, (req, res) => {
     res.sendFile('index.html', { root: join(__dirname, 'dist') });
 });

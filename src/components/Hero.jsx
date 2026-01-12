@@ -1,48 +1,43 @@
-import { ArrowRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 const Hero = () => {
     return (
-        <section id="home" className="hero section relative overflow-hidden">
-            <div className="bg-pattern absolute inset-0 -z-10"></div>
-
-            <div className="container grid grid-cols-1 md-grid-cols-2 gap-lg items-center">
-                <div className="hero-content">
-                    <span className="badge bg-surface text-primary rounded-full px-3 py-1 text-sm font-semibold mb-2 inline-block">
-                        Professional Crane Services
-                    </span>
-                    <h1 className="hero-title mb-4">
-                        Reliable Lifting Solutions for <span className="text-primary">Heavy Engineering</span>
-                    </h1>
-                    <p className="hero-text text-lg text-secondary mb-6" style={{ maxWidth: '500px' }}>
-                        Three Golden Cranes Group provides top-tier crane services, maintenance, and consultation.
-                    </p>
-                    <div className="flex gap-md">
-                        <a href="#contact" className="btn btn-primary flex items-center gap-sm">
-                            Get a Quote <ArrowRight size={18} />
-                        </a>
-                        <a href="#services" className="btn btn-outline">Our Services</a>
-                    </div>
-                </div>
-
-                {/* Placeholder for Hero Image or abstract graphic */}
-                <div className="hero-image-container flex justify-center">
-                    <div className="image-placeholder bg-surface rounded-lg shadow-lg" style={{ width: '100%', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <span className="text-light">Professional Industry Image</span>
+        <section id="home" className="flex flex-col md:flex-row min-h-[90vh] bg-navy">
+            <div className="w-full md:w-1/2 relative bg-gray-200 min-h-[400px] md:min-h-auto">
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-300">
+                    <div className="text-secondary opacity-50 font-bold text-2xl uppercase tracking-widest text-center">
+                        [Placeholder Image] <br />
+                        <span className="text-sm normal-case font-sans">Yellow Crane Machinery</span>
                     </div>
                 </div>
             </div>
 
-            <style>{`
-        .hero { min-height: 80vh; display: flex; align-items: center; background: linear-gradient(to bottom, #F9FAFB, #FFFFFF); }
-        .badge { background: #EBF5FF; padding: 0.25rem 0.75rem; border-radius: 9999px; }
-        .hero-title { font-size: 2.5rem; line-height: 1.1; color: #111827; }
-        @media (min-width: 768px) {
-          .hero-title { font-size: 3.5rem; }
-          .md-grid-cols-2 { grid-template-columns: 1fr 1fr; }
-        }
-        .text-light { color: #9CA3AF; }
-        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-      `}</style>
+            <div className="w-full md:w-1/2 bg-navy text-white flex flex-col justify-center px-8 md:px-16 py-12 relative overflow-hidden">
+
+                <div className="hidden md:block absolute left-0 top-1/3 w-16 h-1 bg-red z-10 transform -translate-x-1/2"></div>
+
+                <div className="max-w-xl relative z-20">
+                    <h1 className="font-serif font-bold leading-[1.1] tracking-[-0.01em] text-[clamp(3rem,5vw,5rem)] text-primary mb-6">
+                        Strategy. Strength. <br />
+                        Safety.
+                    </h1>
+
+                    <p className="text-gray-300 text-xl font-sans mb-10 leading-relaxed font-light">
+                        Three Golden Cranes gets the job done.
+                    </p>
+
+                    <a href="#contact" className="inline-flex items-center text-secondary font-semibold text-lg hover:text-red transition-colors group">
+                        <span className="bg-primary text-secondary p-1 mr-3 rounded-sm group-hover:bg-red group-hover:text-white transition-colors">
+                            <ChevronRight size={20} strokeWidth={3} />
+                        </span>
+                        Start your quote now.
+                    </a>
+                </div>
+
+                <div className="absolute bottom-0 right-0 w-24 h-24 bg-red"></div>
+
+                <div className="absolute top-1/2 right-0 w-full h-[1px] bg-white opacity-10 pointer-events-none"></div>
+            </div>
         </section>
     );
 };

@@ -20,38 +20,29 @@ const Services = () => {
     ];
 
     return (
-        <section id="services" className="section bg-surface">
-            <div className="container">
-                <div className="text-center mb-5">
-                    <h2 className="section-title">Our Services</h2>
-                    <p className="text-secondary" style={{ maxWidth: '600px', margin: '0 auto' }}>
+        <section id="services" className="py-20 bg-surface">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold font-heads text-secondary mb-4 uppercase">Our Services</h2>
+                    <p className="text-gray-600 max-w-2xl mx-auto font-sans">
                         Comprehensive lifting and engineering solutions tailored to your project requirements.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md-grid-cols-3 gap-lg">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {services.map((service, index) => (
-                        <div key={index} className="service-card bg-white p-6 rounded-lg shadow-sm hover-shadow transition">
-                            <div className="icon-wrapper text-primary mb-4">
+                        <div key={index} className="bg-white p-6 rounded-md shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+                            <div className="text-primary mb-4">
                                 {service.icon}
                             </div>
-                            <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                            <p className="text-secondary text-sm leading-relaxed">
+                            <h3 className="text-xl font-bold mb-3 font-heads text-secondary">{service.title}</h3>
+                            <p className="text-gray-600 text-sm leading-relaxed font-sans">
                                 {service.description}
                             </p>
                         </div>
                     ))}
                 </div>
             </div>
-            <style>{`
-        .p-6 { padding: 1.5rem; }
-        .rounded-lg { border-radius: var(--radius-lg); }
-        .shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .hover-shadow:hover { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); transform: translateY(-2px); }
-        .transition { transition: all 0.3s ease; }
-        .text-xl { font-size: 1.25rem; }
-        .leading-relaxed { line-height: 1.625; }
-      `}</style>
         </section>
     );
 };
