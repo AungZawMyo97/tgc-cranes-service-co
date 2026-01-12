@@ -35,8 +35,6 @@ const Hero = () => {
                 </div>
 
                 <div className="absolute bottom-0 right-0 w-24 h-24 bg-red"></div>
-
-                <div className="absolute top-1/2 right-0 w-full h-[1px] bg-white opacity-10 pointer-events-none"></div>
             </div>
         </section>
     );
