@@ -2,14 +2,24 @@ import express from 'express';
 import cors from 'cors';
 import { Resend } from 'resend';
 import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
 dotenv.config();
 
-const app = express();
-const port = 3000;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-app.use(cors());
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(cors({
+    origin: process.env.PROD_URL || '*'
+}));
 app.use(express.json());
+
+// Serve static files from the build directory
+app.use(express.static(join(__dirname, 'dist')));
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -39,6 +49,11 @@ app.post('/api/send-email', async (req, res) => {
         console.error('Email sending error:', error);
         res.status(500).json({ error: 'Failed to send email' });
     }
+});
+
+// Handle React routing, return all requests to React app
+app.get(/.*/, (req, res) => {
+    res.sendFile('index.html', { root: join(__dirname, 'dist') });
 });
 
 app.listen(port, () => {
