@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "U Kyaw Hlaing",
+        "role": "Project Manager",
+        "company": "Myanmar Construction Group",
+        "content": "Three Golden Cranes Group provided exceptional service for our high-rise project. Their equipment is top-notch and the operators are highly skilled.",
+        "rating": 5
+    },
+    {
+        "id": 2,
+        "name": "Daw Khin Myo",
+        "role": "Site Engineer",
+        "company": "Golden City Development",
+        "content": "Professional, reliable, and safety-conscious. They handled our heavy lifting requirements with precision. Highly recommended.",
+        "rating": 5
+    },
+    {
+        "id": 3,
+        "name": "Mr. John Smith",
+        "role": "Logistics Director",
+        "company": "Yangon Port Logistics",
+        "content": "Outstanding engineering consultation. They helped us plan a complex lift that saved us both time and money.",
+        "rating": 5
+    }
+]
